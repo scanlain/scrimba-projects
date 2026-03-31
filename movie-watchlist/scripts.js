@@ -1,9 +1,13 @@
+import { addToWatchlist } from "./watchlistScript.js"
+
 const searchInputEl = document.querySelector('#search-el')
 const searchActionBtn = document.querySelector('.search-btn')
 const movieSectionList = document.querySelector('.movie-section-list')
 
 const API_KEY = 'd9d789cd'
 const API_URL = 'https://www.omdbapi.com/?apiKey='
+
+let movieResults;
 
 searchActionBtn.addEventListener('click', function(event){
 
@@ -17,7 +21,7 @@ searchActionBtn.addEventListener('click', function(event){
 async function fetchMovieDetails(requestURL){
 
     const response = await fetch(requestURL)
-    const movieResults = await response.json()
+    movieResults = await response.json()
 
     if(movieResults.Response === "True" && movieResults.Poster !== "N/A"){
         
@@ -29,7 +33,7 @@ async function fetchMovieDetails(requestURL){
        
 }
 
-function buildMovieSections(movie){
+export function buildMovieSections(movie){
 
     let htmlString = `
         <div class="movie-wrapper">
@@ -48,6 +52,10 @@ function buildMovieSections(movie){
                     <p>${movie.Runtime}</p>
                     <p>${movie.Genre}</p>
                 </div>
+                <div class="watchlist-btn" data-imdbid="${movie.imdbID}">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>Add to Watchlist</p>
+                </div>
                 <div class="movie-description">
                     <p>${movie.Plot}</p>
                 </div>
@@ -56,5 +64,12 @@ function buildMovieSections(movie){
     `
 
     movieSectionList.innerHTML = htmlString
+
+    document.querySelector('.watchlist-btn').addEventListener('click', function(){
+
+        addToWatchlist(movieResults)
+
+    })
     
 }
+

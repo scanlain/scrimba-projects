@@ -66,7 +66,7 @@ main{
     flex: 1;
 }
 
-.movie-section-list{
+.movie-section-list, .watch-movie-section-list{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,17 +110,23 @@ main{
     padding-block: 2rem;
     margin-block: 2rem;
     display: flex;
+    align-items: flex-start;
     justify-content: space-around;
     border-top: 1px solid #2C2C2C;
     border-bottom: 1px solid #2C2C2C;
+    width: 100%;
 }
 
 .movie-poster{
     width: 30%;
+    flex-shrink: 0;
 }
 
 .movie-poster img{
     width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .movie-overview{
@@ -140,6 +146,29 @@ main{
 .movie-details{
     display: flex;
     gap: 1rem;
+}
+
+.watchlist-btn, .redirect-add-movies, .remove-movie-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: gold;
+    border: 1px solid gold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    width: fit-content;
+    transition: all 0.2s ease;
+    margin-top: .5rem;
+}
+
+.watchlist-btn:hover, .remove-movie-btn:hover {
+    background-color: gold;
+    color: #121212;
+}
+
+.redirect-add-movies{
+    text-decoration: none;
 }
 
 

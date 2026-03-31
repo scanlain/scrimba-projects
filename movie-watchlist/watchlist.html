@@ -1,11 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watch List</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <h1 class="nav-title">My Watchlist</h1>
+          <a href="./index.html">Search for movies</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="watch-movie-section-list">
+        <p class="intro-text">Your watchlist is looking a little empty</p>
+        <a href="./index.html" class="redirect-add-movies">
+          <i class="fa-solid fa-plus"></i>
+          <p>Let's add some movies</p>
+        </a>
+      </div>
+    </main>
+    <script src="./watchlistScript.js" type="module"></script>
+  </body>
 </html>
